@@ -12,6 +12,8 @@ public class BookTest {
     LargestWord largestWord = new LargestWord();
     MostUsedWord mostUsedWord = new MostUsedWord();
 
+    FakeBook fakeBook = new FakeBook(listOfWords, largestWord, mostUsedWord);
+
     @Before
     public void setUp() {
         listOfWords.add("dog");
@@ -24,8 +26,6 @@ public class BookTest {
 
     @Test
     public void averageWordLength() {
-        FakeBook fakeBook = new FakeBook(listOfWords, largestWord, mostUsedWord);
-
         int result = fakeBook.averageWordLength();
 
         assertEquals(4, result);
@@ -35,8 +35,6 @@ public class BookTest {
 
     @Test
     public void largestWord() {
-        FakeBook fakeBook = new FakeBook(listOfWords, largestWord, mostUsedWord);
-
         LargestWord largest = fakeBook.largestWord();
 
         assertEquals("tractor", largest.getLargestWords());
@@ -45,8 +43,6 @@ public class BookTest {
 
     @Test
     public void mostUsedWord() {
-        FakeBook fakeBook = new FakeBook(listOfWords, largestWord, mostUsedWord);
-
         MostUsedWord mostUsedWord = fakeBook.frequencyOfWords();
 
         assertEquals("dog", mostUsedWord.getMostUsedWord());
