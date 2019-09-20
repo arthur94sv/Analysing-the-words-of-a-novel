@@ -3,9 +3,9 @@ import java.util.*;
 
 
 public class Book {
-    private Object lockAvgWord = new Object();
-    private Object lockLargestWord = new Object();
-    private Object lockMostFreqWord = new Object();
+    private final Object lockAvgWord = new Object();
+    private final Object lockLargestWord = new Object();
+    private final Object lockMostFreqWord = new Object();
 
     private File file;
     private Scanner scanner;
@@ -28,19 +28,16 @@ public class Book {
 
 
     private void addTheWordsIntoArray() {
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            String[] wordsOfTheLine = line.split(" ");
+        while (scanner.hasNext()) {
 
-            for (String word : wordsOfTheLine) {
-                if (word.equals(""))
-                    continue;
-                else
-                    listOfWords.add(word);
+            String word = scanner.next();
 
-            }
+            if (!word.equals(""))
+                listOfWords.add(word);
+
         }
     }
+
 
     public int averageWordLength() {
         synchronized (lockAvgWord) {
