@@ -1,0 +1,2 @@
+# Analysing the words of a novel
+The programs reads the words of a novel from a .txt file, in this case the novel "Pride and Prejudice" by Jane Austen, and calculates the novel's average word length, the largest word used and the most fequent one in a multi-threadded way. Due to the small number of tasks required, the Cached Thread Pool executor service was selected, together with Future and Callable interface in order to return to the main thread the newly processed values. Furthermore, method references were used instead of anonymous classes.
